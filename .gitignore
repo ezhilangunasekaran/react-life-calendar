@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-
+.idea/workspace.xml
 # testing
 /coverage
 

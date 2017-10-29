@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
-import '../App.css';
 import DatePicker from 'material-ui/DatePicker';
+import Dialog from 'material-ui/Dialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+// storybook components
+
+import LifeCalendar from './LifeCalendar'
 
 
 
 class App extends Component {
+    state ={ modelOpen:false }
   render() {
     return (
         <MuiThemeProvider>
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    <DatePicker></DatePicker>
-                </p>
-            </div>
+            <LifeCalendar/>
+            <Dialog open={this.state.modelOpen}>
+                <DatePicker></DatePicker>
+            </Dialog>
         </MuiThemeProvider>
     );
   }

@@ -7,7 +7,7 @@ class LifeCalendar extends Component{
     render(){
         let weeks =[]
         for(let i=0;i<4693;i++){
-            weeks.push(<Week/>)
+            weeks.push(<Week />)
         }
         return(
             <Grid gridTemplateRows='40px auto' gridGap='10px'>

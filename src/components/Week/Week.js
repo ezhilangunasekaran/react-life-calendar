@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-export const Week = styled.div`
-    background: ${props => props.event ? 'lightgreen' : props.current ? 'lightblue' : 'lightgrey'};
-    width:15px;
-    height:7px;
+const WeekStyle = styled.div`
+    background: ${props => props.background || 'lightgrey'};
     cursor:pointer;
 `
+
+export default class Week extends Component{
+    render (){
+        const { event , current , onActiveClick } = this.props
+        return(
+            <WeekStyle onClick={onActiveClick} background={event ? 'lightgreen' : current ? 'lightblue' : undefined} />
+        )
+    }
+}

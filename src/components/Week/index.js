@@ -1,1 +1,2 @@
-export { Week } from './Week'
+import Week from './Week'
+export default Week

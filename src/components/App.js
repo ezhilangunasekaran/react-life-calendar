@@ -15,16 +15,8 @@ import LifeCalendar from './LifeCalendar'
 
 
 class App extends Component {
-    state = { modelOpen: false, sideBarOpen: false, activeWeek: 0 }
-    componentDidMount() {
-        // this.setState({ modelOpen: false})
-    }
-    onActiveClick = (activeWeek) =>{
-        console.log(activeWeek)
-        this.setState({ sideBarOpen: true, activeWeek })
-    }
+
     render() {
-        const {modelOpen, sideBarOpen, activeWeek} = this.state
         let weeks = []
         for (let i = 1; i < 4693; i++) {
             weeks.push(<Week />)
@@ -33,14 +25,12 @@ class App extends Component {
         <MuiThemeProvider>
             <LifeCalendar>
                 <Header/>
-                <WeekList onActiveClick={() => {this.onActiveClick()}}>
+                <WeekList>
                     {weeks}
                 </WeekList>
-                {sideBarOpen &&
-                <SideBar activeWeek={activeWeek}>
+                <SideBar>
                 </SideBar>
-                }
-                <Dialog open={modelOpen}>
+                <Dialog open={false}>
                     <DatePicker />
                 </Dialog>
             </LifeCalendar>

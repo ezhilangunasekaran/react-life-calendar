@@ -11,8 +11,9 @@ export default class WeekList extends Component {
             if(child.type === Week){
                 return React.cloneElement(child,{
                     event: events.filter(event => event === key).toString() === key.toString() || undefined,
+                    key: key,
                     current: key <= current || undefined,
-                    onActiveClick : () => onActiveClick(key)
+                    onActiveClick : () => {onActiveClick(key)}
                 })
             }
         })

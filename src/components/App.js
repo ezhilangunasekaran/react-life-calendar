@@ -15,11 +15,10 @@ import LifeCalendar from './LifeCalendar'
 
 
 class App extends Component {
-
     render() {
         let weeks = []
         for (let i = 1; i < 4693; i++) {
-            weeks.push(<Week />)
+            weeks.push(<Week key={i} />)
         }
         return (
             <MuiThemeProvider>
@@ -39,4 +38,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default App

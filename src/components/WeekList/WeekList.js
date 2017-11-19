@@ -3,14 +3,18 @@ import { Grid } from '../Grid'
 import Week from '../Week'
 
 export default class WeekList extends Component {
+    state = {events: {}}
+    componentWillReceiveProps(nextProps){
+        this.setState({events: nextProps.events})
+    }
     render () {
         let current = 2000
-        let events = [1, 6, 500, 1550]
         const { onActiveClick } = this.props
+        const { events } = this.state
         const children = React.Children.map(this.props.children, (child, key) => {
             if(child.type === Week){
                 return React.cloneElement(child,{
-                    event: events.filter(event => event === key).toString() === key.toString() || undefined,
+                    event: Object.keys(events).filter(event => parseInt(event) === key).toString() === key.toString() || undefined,
                     key: key,
                     current: key <= current || undefined,
                     onActiveClick : () => {onActiveClick(key)}

@@ -3,9 +3,11 @@ import { Grid } from '../Grid'
 
 export default class SideBar extends Component {
     render () {
-        const { sideBarOpen, activeWeek } = this.props
+        const { sideBarOpen, activeWeek, closeSideBar } = this.props
         return (
-            sideBarOpen && <Grid width='300px'>SideBar! ({activeWeek})</Grid>
+            sideBarOpen && (<Grid width='300px'>SideBar! ({activeWeek})
+            <button onClick={closeSideBar}>Close</button>
+            </Grid>)
         )
     }
 }

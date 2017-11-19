@@ -15,28 +15,27 @@ import LifeCalendar from './LifeCalendar'
 
 
 class App extends Component {
-
     render() {
         let weeks = []
         for (let i = 1; i < 4693; i++) {
-            weeks.push(<Week />)
+            weeks.push(<Week key={i} />)
         }
-    return (
-        <MuiThemeProvider>
-            <LifeCalendar>
-                <Header/>
-                <WeekList>
-                    {weeks}
-                </WeekList>
-                <SideBar>
-                </SideBar>
-                <Dialog open={false}>
-                    <DatePicker />
-                </Dialog>
-            </LifeCalendar>
-        </MuiThemeProvider>
-    );
-  }
+        return (
+            <MuiThemeProvider>
+                <LifeCalendar>
+                    <Header/>
+                    <WeekList>
+                        {weeks}
+                    </WeekList>
+                    <SideBar>
+                    </SideBar>
+                    <Dialog open={false}>
+                        <DatePicker />
+                    </Dialog>
+                </LifeCalendar>
+            </MuiThemeProvider>
+        );
+    }
 }
 
-export default App;
+export default App

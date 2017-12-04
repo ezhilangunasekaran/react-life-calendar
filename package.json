@@ -5,6 +5,8 @@
   "homepage": "https://ezhilangunasekaran.github.io/react-life-calendar",
   "dependencies": {
     "gh-pages": "^1.0.0",
+    "moment": "^2.19.3",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",

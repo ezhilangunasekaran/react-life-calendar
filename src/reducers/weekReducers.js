@@ -4,7 +4,8 @@ const initialState = {
     loaded: false,
     loading: false,
     events: {},
-    dob:''
+    dob:'',
+    dobModelOpen: true
 }
 
 export default function events(state = initialState, action = {}){
@@ -13,6 +14,12 @@ export default function events(state = initialState, action = {}){
             return {
                 ...state,
                 events: action.events,
+                dob: action.dob,
+                dobModelOpen: true
+            }
+        case types.SET_DOB:
+            return {
+                ...state,
                 dob: action.dob
             }
         default:

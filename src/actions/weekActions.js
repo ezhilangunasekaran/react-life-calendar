@@ -15,3 +15,13 @@ export function getEvents(){
        })
     }
 }
+
+export function setDob(dob) {
+    return dispatch => {
+        dispatch({
+            type: types.SET_DOB,
+            dob: dob
+        })
+        return weekApi.setDob(dob)
+    }
+}

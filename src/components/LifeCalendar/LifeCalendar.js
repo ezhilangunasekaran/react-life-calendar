@@ -9,21 +9,24 @@ class LifeCalendar extends Component {
     componentWillMount(){
         this.props.getEvents()
     }
-    state = { modelOpen: false, sideBarOpen: false, activeWeek: 0 }
+    state = { modelOpen: true, sideBarOpen: false, activeWeek: 0 }
     render(){
         const { dob, events } = this.props.weeks
+        const { modelOpen, sideBarOpen, activeWeek } = this.state
         console.log(this.props.weeks)
         const children = React.Children.map(this.props.children, child => {
             if(child.type === WeekList){
                 return React.cloneElement(child,{
                     onActiveClick : activeWeek => this.setState({ sideBarOpen: true, activeWeek }),
-                    events
+                    events,
+                    dob
                 })
             }
             if(child.type === SideBar){
                 return React.cloneElement(child,{
-                    sideBarOpen : this.state.sideBarOpen,
-                    activeWeek : this.state.activeWeek,
+                    sideBarOpen,
+                    activeWeek,
+                    events,
                     closeSideBar: () => this.setState({ sideBarOpen: false })
                 })
             }else{

@@ -10,7 +10,7 @@ export default class Week extends Component{
     render (){
         const { event , current , onActiveClick } = this.props
         return(
-            <WeekStyle onClick={event && onActiveClick} background={event ? 'lightgreen' : current ? 'lightblue' : undefined} />
+            <WeekStyle onClick={event && onActiveClick} background={event ? 'lightgreen' : current ? '#BBDEFB' : undefined} />
         )
     }
 }

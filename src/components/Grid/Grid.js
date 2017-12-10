@@ -5,6 +5,7 @@ export const Grid = styled.div`
     ${props => props.gridTemplateColumns && ('grid-template-columns:' + props.gridTemplateColumns +';')}
     ${props => props.gridTemplateRows && ('grid-template-rows:' + props.gridTemplateRows +';')}
     ${props => props.gridColumn && ('grid-column:' + props.gridColumn +';')}
+    ${props => props.gridRow && ('grid-row:' + props.gridRow +';')}
     ${props => props.gridGap && ('grid-gap:' + props.gridGap + ';')}
     ${props => props.alignItems && ('align-items:' + props.alignItems + ';')}
     ${props => props.alignContent && ('align-content:' + props.alignContent + ';')}

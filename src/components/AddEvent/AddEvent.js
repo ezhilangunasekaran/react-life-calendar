@@ -9,14 +9,10 @@ export default class AddEvent extends Component {
     state = { eventDate:'', eventTitle:''}
 
     getEventDate = (event, date) => {
-        console.log(moment(date).format('MM-DD-YYYY'))
         this.setState({eventDate: moment(date).format('L')})
     }
     getEventTitle = (event) => {
         this.setState({eventTitle: event.target.value})
-    }
-    eventValidation = () =>{
-
     }
     addEvent = () => {
         const { eventDate, eventTitle } = this.state

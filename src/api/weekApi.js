@@ -41,8 +41,14 @@ class weekApi {
             const currentData = JSON.parse(localStorage.getItem(RC_LC))
             const events = currentData.events
             const deletedWeekEvents = events[deletedWeek].filter((event,k) => k !== key)
-            const updatedEvents = Object.assign({}, events,{[deletedWeek]: deletedWeekEvents} )
-            const modifiedEventsData = Object.assign({}, currentData, {events: updatedEvents})
+            let finalUpdatedEvents = []
+            if(deletedWeekEvents.length === 0){
+                delete events[deletedWeek]
+                finalUpdatedEvents = Object.assign({}, events)
+            } else{
+                finalUpdatedEvents = Object.assign({}, events,{[deletedWeek]: deletedWeekEvents} )
+            }
+            const modifiedEventsData = Object.assign({}, currentData, {events: finalUpdatedEvents})
             localStorage.setItem('rc-lc', JSON.stringify(modifiedEventsData))
             return modifiedEventsData
         })

@@ -16,17 +16,18 @@ class SideBar extends Component {
     render () {
         const { sideBarOpen, closeSideBar } = this.props
         const { events, activeWeek} = this.state
-        console.log(events[activeWeek])
         return (
             sideBarOpen && (<Grid gridGap='20px'
                                   padding='10px 20px 0 0'
                                   width='300px' height="calc(100vh - 40px)" alignContent='start'>
                 <Grid>
-                    {events[activeWeek].map((event, key) =>
-                        <Grid border='border-bottom:1px solid #ddd' padding='10px 0'>
+                    {events[activeWeek] && events[activeWeek].map((event, key) =>
+                        <Grid border='border-bottom:1px solid #ddd' padding='10px 0' gridTemplateColumns='auto 60px' gridTemplateRows='1fr auto'>
                             <Grid fontSize='17px'>{event.event}</Grid>
                             <Grid fontSize='10px'>{event.date}</Grid>
-                            <Grid onClick={() => this.deleteEvent(activeWeek, key)}>Delete</Grid>
+                            <Grid justifyContent='center' alignContent='center' height='24px' fontSize='12px'
+                                  background='#ff4081' color='#fff' gridColumn='2/3' cursor='pointer'
+                                  gridRow='1/3' onClick={() => this.deleteEvent(activeWeek, key)}>Delete</Grid>
                         </Grid>
                     )}
                 </Grid>

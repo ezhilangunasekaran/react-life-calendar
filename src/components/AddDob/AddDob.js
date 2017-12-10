@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import DatePicker from 'material-ui/DatePicker'
 import Dialog from 'material-ui/Dialog'
-import { Button } from '../Button'
 import { Grid } from '../Grid'
 import moment from 'moment'
 
 export default class AddDob extends Component {
     state = { dob: undefined}
     getDob = (event, date) => {
-        console.log(moment(date).format('MM-DD-YYYY'))
         this.setState({dob: moment(date).format('L')})
     }
     setDob = () => {
